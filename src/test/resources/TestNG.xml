@@ -7,18 +7,8 @@
         <classes>
             <class name="SignUpTests">
             <methods>
-                <include name="loginSuccess" />
+                <include name="SignUpSuccessTest" />
             </methods>
-            </class>
-            <class name="signUpTests">
-                <methods>
-                    <include name="SignUpSuccess" />
-                </methods>
-            </class>
-            <class name="checkoutTest">
-                <methods>
-                    <include name="checkoutSuccess" />
-                </methods>
             </class>
         </classes>
     </test>
