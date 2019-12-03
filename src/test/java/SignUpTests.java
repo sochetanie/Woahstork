@@ -9,17 +9,12 @@ import java.sql.Timestamp;
 
 public class SignUpTests extends  BaseTest {
 
-
-
     @Test(priority = 1)
     public void SignUpSuccessTest () {
-
         SignUpPage signUpPage = new SignUpPage(driver);
-
         signUpPage.openSignUpPage();
 
         signUpPage.setEmailField(signUpPage.getRandomEmail());
-
         signUpPage.setPasswordField("incorrectPassword");
         signUpPage.setConfirmPasswordField("incorrectPassword");
         signUpPage.setZipCode("90066");
@@ -30,9 +25,7 @@ public class SignUpTests extends  BaseTest {
         signUpPage.clickToLoginButton();
 
         WebElement phoneNumber = signUpPage.getPhoneNumberElement(); //driver.findElement(By.cssSelector("[label=\"Your Phone Number\"]"));
-
         Assert.assertTrue(phoneNumber.isDisplayed());
-
     }
 
 

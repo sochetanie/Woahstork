@@ -7,16 +7,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 class BasePage {
+  WebDriver driver;
+  WebDriverWait wait;
 
-    WebDriver driver;
-    WebDriverWait wait;
+  public BasePage(WebDriver myDriver) {
+    this.driver = myDriver;
+    wait = new WebDriverWait(driver, 4);
+  }
 
-    public BasePage(WebDriver myDriver) {
-        this.driver = myDriver;
-        wait = new WebDriverWait(driver,4);
-    }
+  protected WebElement findElement(String cssLocator) {
+    return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssLocator)));
+  }
 
-    protected WebElement findElement(String cssLocator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(cssLocator)));
-    }
+  protected WebElement findElementByXPath(String xpath) {
+    return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+  }
 }

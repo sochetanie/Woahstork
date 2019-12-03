@@ -10,67 +10,59 @@ import java.sql.Timestamp;
 
 public class SignUpPage extends BasePage {
 
+  public SignUpPage(WebDriver myDriver) {
+    super(myDriver);
+  }
 
-    public SignUpPage(WebDriver myDriver) {
-        super(myDriver);
-    }
+  public void openSignUpPage() {
+    driver.get("https://test.woahstork.com/register");
+  }
 
+  public void clickCheckboxTermsAndConditions() {
+    findElement("[class='styled__CheckboxWrapper-sc-1x07d2p-2 cjrWjQ'] [class*='ws-checkbox']").click();
+  }
 
-    public void openSignUpPage() {
+  public void clickCheckboxHIPAA() {
+    findElement("[class='styled__CheckboxWrapper-sc-1x07d2p-2 cIPcIz'] [class*='ws-checkbox']").click();
+  }
 
-        driver.get("https://test.woahstork.com/register");
-    }
+  public WebElement getPhoneNumberElement() {
+    return findElement("[label='Your Phone Number']");
+  }
 
-    public void clickCheckboxTermsAndConditions() {
+  public String getRandomEmail() {
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    return timestamp.getTime() + "@gmail.com";
+  }
 
-        findElement("[class='styled__CheckboxWrapper-sc-1x07d2p-2 cjrWjQ'] [class*='ws-checkbox']").click();
-    }
+  public void clickToLoginButton() {
+    WebElement login_button = findButtonByText("Sign Up");
+    login_button.click();
+  }
 
-    public void clickCheckboxHIPAA() {
+  public void setEmailField(String email) {
+    WebElement emailField = findElement("[placeholder='Email']");
+    emailField.sendKeys(email);
+  }
 
-        findElement("[class='styled__CheckboxWrapper-sc-1x07d2p-2 cIPcIz'] [class*='ws-checkbox']").click();
-    }
+  public void setPasswordField(String password) {
+    WebElement passwordField = findElement("[placeholder='Password']");
+    passwordField.sendKeys(password);
+  }
 
-    public WebElement getPhoneNumberElement() {
+  public void setConfirmPasswordField(String password) {
+    WebElement passwordField = findElement("[placeholder='Confirm Password']");
+    passwordField.sendKeys(password);
+  }
 
-        return findElement("[label='Your Phone Number']");
-    }
+  public void setZipCode(String zipcode) {
+    WebElement zip = findElement("[placeholder='Zipcode']");
+    zip.sendKeys(zipcode);
+  }
 
-    public String getRandomEmail() {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        return timestamp.getTime() + "@gmail.com";
-
-    }
-
-    public void clickToLoginButton(){
-        WebElement login_button = findButtonByText("Sign Up");
-        login_button.click();
-    }
-
-    public void setEmailField(String email){
-        WebElement emailField = findElement("[placeholder='Email']");
-        emailField.sendKeys(email);
-    }
-
-    public void setPasswordField(String password){
-        WebElement passwordField = findElement("[placeholder='Password']");
-        passwordField.sendKeys(password);
-    }
-
-    public void setConfirmPasswordField(String password){
-        WebElement passwordField = findElement("[placeholder='Confirm Password']");
-        passwordField.sendKeys(password);
-    }
-
-    public void setZipCode(String zipcode){
-        WebElement zip = findElement("[placeholder='Zipcode']");
-        zip.sendKeys(zipcode);
-    }
-
-    public WebElement findButtonByText(String textOfTheButton) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='" + textOfTheButton + "']")));
-    }
-
+  public WebElement findButtonByText(String textOfTheButton) {
+    return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='" + textOfTheButton + "']")));
+  }
 
 
 }
