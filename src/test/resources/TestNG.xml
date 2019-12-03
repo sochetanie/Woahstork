@@ -6,14 +6,8 @@
     <test name="Smoke tests" preserve-order="false">
         <classes>
             <class name="SignUpTests">
-                <methods>
-                    <include name="SignUpSuccessTest"/>
-                </methods>
             </class>
             <class name="LoginTests">
-                <methods>
-                    <include name="LoginSuccessTest"/>
-                </methods>
             </class>
             <class name="DropdownPractice"></class>
         </classes>
