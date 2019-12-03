@@ -8,21 +8,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PLPPage extends BasePage {
 
+  public PLPPage(WebDriver myDriver) {
+    super(myDriver);
+  }
 
-    public PLPPage(WebDriver myDriver) {
-        super(myDriver);
-    }
+  public WebElement getCheckoutElement() {
+    return findElement("[class*='ButtonWrapper'] a");
+  }
 
-    public WebElement getCheckoutElement() {
-        return findElement("[class*='ButtonWrapper'] a");
-    }
+  public void clickCartButton() {
+    findElement("[class*='CartButton']").click();
+  }
 
-    public void clickCartButton() {
-        findElement("[class*='CartButton']").click();
-    }
-
-    public void openPLPPage() {
-        driver.get("https://test.woahstork.com/cbdmarketplace");
-    }
+  public void openPLPPage() {
+    driver.get("https://test.woahstork.com/cbdmarketplace");
+  }
 
 }
