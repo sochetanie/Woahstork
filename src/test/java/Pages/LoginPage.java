@@ -1,9 +1,9 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginPage extends BasePage {
 
@@ -16,38 +16,25 @@ public class LoginPage extends BasePage {
   }
 
   public void clickAlreadyHaveAnAccount() {
-    findElement("[class*='styled__Bottom']").click();
+    WebElement link = findElement("[class*='styled__Bottom']");
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", link);
+    findElement("//button[contains(text(),'Got it!')]").click();
+    findElement("//a[contains(text(),'Already have an account')]").click();
   }
 
   public void setEmail(String email) {
-    WebElement emailField = findElement("[placeholder='Email']");
+    WebElement emailField = findElementByXPath("(//input[@placeholder='Email'])[2]");
     emailField.sendKeys(email);
   }
 
   public void setPassword(String password) {
-    WebElement passwordField = findElement("[placeholder='Password']");
+    WebElement passwordField = findElementByXPath("(//input[@placeholder='Password'])[2]");
     passwordField.sendKeys(password);
   }
 
-  public void clickToLoginButton() {
-    WebElement login_button = findButtonByText("Sign Up");
-    login_button.click();
+  public void clickLoginButton() {
+    WebElement loginButton = findElementByXPath("//button[contains(text(),'Log In')]");
+    loginButton.click();
   }
-
-
-  public void setConfirmPasswordField(String password) {
-    WebElement passwordField = findElement("[placeholder='Confirm Password']");
-    passwordField.sendKeys(password);
-  }
-
-  public void setZipCode(String zipcode) {
-    WebElement zip = findElement("[placeholder='Zipcode']");
-    zip.sendKeys(zipcode);
-  }
-
-  public WebElement findButtonByText(String textOfTheButton) {
-    return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='" + textOfTheButton + "']")));
-  }
-
 
 }
