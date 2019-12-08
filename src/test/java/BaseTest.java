@@ -15,24 +15,24 @@ public class BaseTest {
   protected WebDriver driver;
   protected WebDriverWait driverWait;
 
-//  @BeforeMethod
-//  public void setUp() {
-//    driver = new ChromeDriver();
-//    driver.manage().window().maximize();
-//    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//    driverWait = new WebDriverWait(driver,10);
-//  }
-
   @BeforeMethod
-  public void beforeMethodSetup() throws MalformedURLException {
-    String nodeURL = "http://localhost:4444/";
-    DesiredCapabilities caps = DesiredCapabilities.chrome();
-//        caps.setBrowserName("chrome");
-//        caps.setPlatform(Platform.MAC);
-    driver = new RemoteWebDriver(new URL(nodeURL), caps);
+  public void setUp() {
+    driver = new ChromeDriver();
+    driver.manage().window().maximize();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driverWait = new WebDriverWait(driver,4);
+    driverWait = new WebDriverWait(driver,10);
   }
+
+//  @BeforeMethod
+//  public void beforeMethodSetup() throws MalformedURLException {
+//    String nodeURL = "http://localhost:4444/";
+//    DesiredCapabilities caps = DesiredCapabilities.chrome();
+////        caps.setBrowserName("chrome");
+////        caps.setPlatform(Platform.MAC);
+//    driver = new RemoteWebDriver(new URL(nodeURL), caps);
+//    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//    driverWait = new WebDriverWait(driver,4);
+//  }
 
 
   @AfterMethod

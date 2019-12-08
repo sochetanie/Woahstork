@@ -17,7 +17,7 @@ public class LoginPage extends BasePage {
 
   public void clickAlreadyHaveAnAccount() {
     WebElement link = findElement("[class*='styled__Bottom']");
-    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", link);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", link);
     findElement("//button[contains(text(),'Got it!')]").click();
     findElement("//a[contains(text(),'Already have an account')]").click();
   }
