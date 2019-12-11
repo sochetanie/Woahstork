@@ -15,9 +15,9 @@ public class BaseTest {
   protected WebDriver driver;
   protected WebDriverWait driverWait;
 
-  public static final String USERNAME = "alla.g.";
-  public static final String ACCESS_KEY = "67bd6c0c-1768-4774-a2c6-799ee70f799c";
-  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+//  public static final String USERNAME = "alla.g.";
+//  public static final String ACCESS_KEY = "67bd6c0c-1768-4774-a2c6-799ee70f799c";
+//  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 
 //  @BeforeMethod
 //  public void setUp() throws MalformedURLException {
