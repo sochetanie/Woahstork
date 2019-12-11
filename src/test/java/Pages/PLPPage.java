@@ -1,27 +1,42 @@
 package Pages;
 
-import org.openqa.selenium.By;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import com.codeborne.selenide.WebDriverRunner;
 
-public class PLPPage extends BasePage {
+import static com.codeborne.selenide.Selenide.$;
+
+
+public class PLPPage {
+  WebDriver driver;
 
   public PLPPage(WebDriver myDriver) {
-    super(myDriver);
+    driver = myDriver;
+    PageFactory.initElements(myDriver, this);
+//    WebDriverRunner.setWebDriver(myDriver);
   }
 
-  public WebElement getCheckoutElement() {
-    return findElement("[class*='ButtonWrapper'] a");
+//  SelenideElement checkoutElement = $("[class*='ButtonWrapper'] a");
+  @FindBy(css = "[class*='ButtonWrapper'] a")
+  private WebElement checkoutElement;
+  public String getCheckoutButtonLabel() {
+    return checkoutElement.getText();
   }
 
-  public void clickCartButton() {
-    findElement("[class*='CartButton']").click();
+//  SelenideElement cartButton = $("[class*='CartButton']");
+  @FindBy(css = "[class*='CartButton']")
+  private WebElement cartButton;
+  public PLPPage clickCarButton() {
+    cartButton.click();
+    return this;
   }
 
-  public void openPLPPage() {
+  public PLPPage openPLPPage() {
     driver.get("https://test.woahstork.com/cbdmarketplace");
+    return this;
   }
 
 }
